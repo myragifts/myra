@@ -261,12 +261,77 @@ body{
   opacity:0;
   pointer-events:none;
   transition:.3s;
-  z-index:9999;
+  z-index:99999;
 }
 
 .toast.show{
   opacity:1;
   transform:translateX(-50%) translateY(0);
+}
+
+/* Forgot Modal */
+.forgot-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(17,24,39,.55);
+  display:none;
+  align-items:flex-end;
+  justify-content:center;
+  z-index:9999;
+}
+
+.forgot-modal.show{
+  display:flex;
+}
+
+.forgot-box{
+  width:100%;
+  max-width:520px;
+  background:#FFF8F0;
+  border-radius:34px 34px 0 0;
+  padding:34px 24px 30px;
+  text-align:center;
+  box-shadow:0 -20px 60px rgba(0,0,0,.18);
+}
+
+.forgot-box h2{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  color:#2E2E2E;
+  margin-bottom:10px;
+}
+
+.forgot-box p{
+  color:#6B7280;
+  font-weight:600;
+  margin-bottom:22px;
+}
+
+.forgot-actions{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:14px;
+  margin-top:18px;
+}
+
+.forgot-actions button{
+  height:56px;
+  border-radius:18px;
+  border:0;
+  font-weight:800;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.forgot-actions button:first-child{
+  background:#fff;
+  color:#9B7B22;
+  border:1px solid #E8E0D4;
+}
+
+.forgot-actions button:last-child{
+  background:linear-gradient(135deg,#C9A227,#E7D08A);
+  color:#2E2E2E;
 }
 
 @media(max-width:1024px){
@@ -296,25 +361,17 @@ body{
   }
 
   .hero-brand{
-  display:none;
-}
-
-  .hero-brand h1{
-    font-size:46px;
-  }
-
-  .hero-brand p{
-    font-size:15px;
+    display:none;
   }
 
   .login-side{
-  min-height:auto;
-  padding:0 18px 34px;
-  background:transparent;
-  margin-top:-34px;
-  position:relative;
-  z-index:2;
-}
+    min-height:auto;
+    padding:0 18px 34px;
+    background:transparent;
+    margin-top:-34px;
+    position:relative;
+    z-index:2;
+  }
 
   .login-card{
     max-width:100%;
@@ -437,9 +494,28 @@ body{
 
 </main>
 
+<div class="forgot-modal" id="forgotModal">
+  <div class="forgot-box">
+    <h2 id="forgotTitle">Forgot Name</h2>
+    <p id="forgotText">Enter your phone number to find your name.</p>
+
+    <div class="input-box">
+      <span class="icon" id="forgotIcon">📱</span>
+      <input type="text" id="forgotInput" placeholder="Write your phone number">
+    </div>
+
+    <div class="forgot-actions">
+      <button onclick="closeForgotModal()">Back</button>
+      <button onclick="findForgotData()" id="forgotFindBtn">Find Name</button>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
+let forgotMode = "";
+
 function showToast(message){
   const toast = document.getElementById("toast");
   toast.innerText = message;
@@ -495,11 +571,62 @@ function handleNewUser(){
 }
 
 function forgotName(){
-  alert("Forgot Name?\n\nEnter your registered phone number in the phone box. Then we can find your saved name.");
+  forgotMode = "name";
+  document.getElementById("forgotTitle").innerText = "Forgot Name";
+  document.getElementById("forgotText").innerText = "Enter your phone number to find your name.";
+  document.getElementById("forgotIcon").innerText = "📱";
+  document.getElementById("forgotInput").value = "";
+  document.getElementById("forgotInput").placeholder = "Write your phone number";
+  document.getElementById("forgotFindBtn").innerText = "Find Name";
+  document.getElementById("forgotModal").classList.add("show");
 }
 
 function forgotPhone(){
-  alert("Forgot Phone Number?\n\nEnter your registered name in the name box. Then we can find your saved phone number.");
+  forgotMode = "phone";
+  document.getElementById("forgotTitle").innerText = "Forgot Phone";
+  document.getElementById("forgotText").innerText = "Enter your name to find your phone number.";
+  document.getElementById("forgotIcon").innerText = "👤";
+  document.getElementById("forgotInput").value = "";
+  document.getElementById("forgotInput").placeholder = "Write your name";
+  document.getElementById("forgotFindBtn").innerText = "Find Phone";
+  document.getElementById("forgotModal").classList.add("show");
+}
+
+function closeForgotModal(){
+  document.getElementById("forgotModal").classList.remove("show");
+}
+
+function findForgotData(){
+  const value = document.getElementById("forgotInput").value.trim();
+
+  if(!value){
+    showToast("Please fill the box");
+    return;
+  }
+
+  if(forgotMode === "name"){
+    const savedPhone = localStorage.getItem(CONFIG.STORAGE_KEYS.USER_PHONE);
+    const savedName = localStorage.getItem(CONFIG.STORAGE_KEYS.USER_NAME);
+
+    if(savedPhone && savedName && savedPhone === value){
+      showToast("Your saved name is " + savedName);
+    }else{
+      showToast("No saved name found");
+    }
+  }
+
+  if(forgotMode === "phone"){
+    const savedName = localStorage.getItem(CONFIG.STORAGE_KEYS.USER_NAME);
+    const savedPhone = localStorage.getItem(CONFIG.STORAGE_KEYS.USER_PHONE);
+
+    if(savedName && savedPhone && savedName.toLowerCase() === value.toLowerCase()){
+      showToast("Your saved phone is " + savedPhone);
+    }else{
+      showToast("No saved phone found");
+    }
+  }
+
+  closeForgotModal();
 }
 
 document.getElementById("userPhone").addEventListener("input", function(){
