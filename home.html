@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MYRA | Home</title>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#2E2E2E">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="config.js"></script>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+:root{
+  --cream:#FFF8F0;
+  --warm:#FFFCF8;
+  --gold:#C9A227;
+  --sage:#7A8B6F;
+  --dark:#2E2E2E;
+  --text:#1F1F1F;
+  --muted:#777;
+  --border:#E8E0D4;
+  --green:#059669;
+}
+
+body{
+  font-family:'Poppins',sans-serif;
+  background:var(--cream);
+  color:var(--text);
+  padding-bottom:90px;
+}
+
+.top-bar{
+  background:#2E2E2E;
+  color:#fff;
+  text-align:center;
+  padding:9px 12px;
+  font-size:13px;
+  letter-spacing:.3px;
+}
+
+.header{
+  position:sticky;
+  top:0;
+  z-index:50;
+  background:rgba(255,252,248,.96);
+  backdrop-filter:blur(12px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 6%;
+  border-bottom:1px solid var(--border);
+}
+
+.logo h1{
+  font-family:'Playfair Display',serif;
+  font-size:34px;
+  letter-spacing:4px;
+  color:var(--dark);
+}
+
+.logo p{
+  font-size:12px;
+  color:var(--sage);
+  margin-top:-4px;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.icon-btn{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  border:1px solid var(--border);
+  background:#fff;
+  font-size:18px;
+  cursor:pointer;
+}
+
+.search-wrap{
+  padding:18px 6%;
+}
+
+.search-box{
+  height:56px;
+  max-width:760px;
+  margin:auto;
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:18px;
+  display:flex;
+  align-items:center;
+  padding:0 18px;
+  gap:12px;
+  box-shadow:0 12px 30px rgba(0,0,0,.04);
+}
+
+.search-box input{
+  width:100%;
+  border:0;
+  outline:0;
+  font-size:15px;
+  background:transparent;
+}
+
+.hero{
+  padding:0 6%;
+}
+
+.hero-card{
+  min-height:430px;
+  border-radius:34px;
+  overflow:hidden;
+  position:relative;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.58),rgba(0,0,0,.10)),
+    url("https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1800&auto=format&fit=crop")
+    center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  padding:60px;
+  color:#fff;
+}
+
+.hero-content{
+  max-width:520px;
+}
+
+.hero-content span{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  background:rgba(255,255,255,.18);
+  margin-bottom:18px;
+  font-size:13px;
+  letter-spacing:1px;
+}
+
+.hero-content h2{
+  font-family:'Playfair Display',serif;
+  font-size:58px;
+  line-height:1.05;
+  margin-bottom:18px;
+}
+
+.hero-content p{
+  font-size:17px;
+  line-height:1.7;
+  margin-bottom:26px;
+}
+
+.hero-btn{
+  border:0;
+  padding:16px 28px;
+  border-radius:999px;
+  background:linear-gradient(135deg,#C9A227,#F1D981);
+  color:#2E2E2E;
+  font-weight:800;
+  cursor:pointer;
+}
+
+.section{
+  padding:34px 6% 0;
+}
+
+.section-head{
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  margin-bottom:18px;
+}
+
+.section-head h2{
+  font-family:'Playfair Display',serif;
+  font-size:32px;
+  color:var(--dark);
+}
+
+.section-head p{
+  color:var(--muted);
+  font-size:14px;
+}
+
+.view-all{
+  border:0;
+  background:transparent;
+  color:#9B7B22;
+  font-weight:700;
+  cursor:pointer;
+}
+
+.categories{
+  display:grid;
+  grid-template-columns:repeat(10,1fr);
+  gap:14px;
+}
+
+.category-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:18px 10px;
+  text-align:center;
+  cursor:pointer;
+  transition:.25s;
+}
+
+.category-card:hover{
+  transform:translateY(-4px);
+  box-shadow:0 14px 34px rgba(0,0,0,.08);
+}
+
+.category-icon{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.category-card span{
+  font-size:13px;
+  font-weight:700;
+}
+
+.product-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:22px;
+}
+
+.product-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:24px;
+  overflow:hidden;
+  cursor:pointer;
+  box-shadow:0 12px 32px rgba(0,0,0,.06);
+  transition:.25s;
+}
+
+.product-card:hover{
+  transform:translateY(-5px);
+}
+
+.product-img{
+  height:260px;
+  position:relative;
+  overflow:hidden;
+  background:#f7f0e6;
+}
+
+.product-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.badge{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#ECFDF5;
+  color:#059669;
+  padding:7px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.product-info{
+  padding:16px;
+}
+
+.product-info h3{
+  font-size:16px;
+  margin-bottom:8px;
+}
+
+.short-desc{
+  color:#777;
+  font-size:13px;
+  line-height:1.5;
+  margin-bottom:10px;
+}
+
+.price-row{
+  display:flex;
+  align-items:center;
+  gap:9px;
+  flex-wrap:wrap;
+  margin-bottom:10px;
+}
+
+.offer-price{
+  font-size:21px;
+  font-weight:900;
+  color:var(--dark);
+}
+
+.mrp{
+  font-size:14px;
+  color:#999;
+  text-decoration:line-through;
+}
+
+.discount{
+  font-size:12px;
+  color:#059669;
+  font-weight:800;
+}
+
+.rating{
+  font-size:13px;
+  color:#555;
+}
+
+.live{
+  margin-top:10px;
+  display:inline-block;
+  background:#ECFDF5;
+  color:#059669;
+  padding:7px 10px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+
+.mood-boxes,
+.occasion-boxes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:12px;
+}
+
+.mood-tag,
+.occasion-tag{
+  border:1px solid var(--border);
+  background:#fff;
+  border-radius:999px;
+  padding:7px 10px;
+  font-size:11px;
+  color:#777;
+}
+
+.mood-tag.active,
+.occasion-tag.active{
+  background:#FFF8E1;
+  border-color:#C9A227;
+  color:#7A5A00;
+  font-weight:800;
+}
+
+.gift-banner{
+  border-radius:32px;
+  background:
+    linear-gradient(90deg,rgba(46,46,46,.78),rgba(46,46,46,.28)),
+    url("https://images.unsplash.com/photo-1607344645866-009c7d5abffe?q=80&w=1600&auto=format&fit=crop")
+    center/cover no-repeat;
+  min-height:260px;
+  color:#fff;
+  display:flex;
+  align-items:center;
+  padding:42px;
+}
+
+.gift-banner h2{
+  font-family:'Playfair Display',serif;
+  font-size:42px;
+  margin-bottom:12px;
+}
+
+.why-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+}
+
+.why-card{
+  background:#fff;
+  border:1px solid var(--border);
+  border-radius:22px;
+  padding:22px;
+  text-align:center;
+}
+
+.why-card div{
+  font-size:30px;
+  margin-bottom:10px;
+}
+
+.why-card h3{
+  font-size:15px;
+  margin-bottom:6px;
+}
+
+.why-card p{
+  font-size:13px;
+  color:#777;
+  line-height:1.5;
+}
+
+.bottom-nav{
+  position:fixed;
+  left:0;
+  right:0;
+  bottom:0;
+  height:72px;
+  background:#fff;
+  border-top:1px solid var(--border);
+  display:none;
+  grid-template-columns:repeat(5,1fr);
+  z-index:100;
+}
+
+.nav-item{
+  border:0;
+  background:transparent;
+  color:#777;
+  font-size:11px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:4px;
+}
+
+.nav-item strong{
+  font-size:21px;
+  line-height:1;
+}
+
+.nav-item.active{
+  color:#9B7B22;
+  font-weight:800;
+}
+
+.toast{
+  position:fixed;
+  left:50%;
+  bottom:92px;
+  transform:translateX(-50%) translateY(20px);
+  background:#2E2E2E;
+  color:#fff;
+  padding:13px 20px;
+  border-radius:999px;
+  font-size:14px;
+  opacity:0;
+  pointer-events:none;
+  transition:.3s;
+  z-index:99999;
+}
+
+.toast.show{
+  opacity:1;
+  transform:translateX(-50%) translateY(0);
+}
+
+@media(max-width:1100px){
+  .product-row{
+    grid-template-columns:repeat(3,1fr);
+  }
+
+  .categories{
+    grid-template-columns:repeat(5,1fr);
+  }
+}
+
+@media(max-width:768px){
+  body{
+    padding-bottom:86px;
+  }
+
+  .top-bar{
+    font-size:12px;
+  }
+
+  .header{
+    padding:14px 18px;
+  }
+
+  .logo h1{
+    font-size:28px;
+  }
+
+  .header-actions{
+    gap:8px;
+  }
+
+  .icon-btn{
+    width:38px;
+    height:38px;
+  }
+
+  .search-wrap{
+    padding:14px 18px;
+  }
+
+  .hero{
+    padding:0 18px;
+  }
+
+  .hero-card{
+    min-height:360px;
+    border-radius:28px;
+    padding:30px 22px;
+    align-items:flex-end;
+  }
+
+  .hero-content h2{
+    font-size:38px;
+  }
+
+  .hero-content p{
+    font-size:14px;
+  }
+
+  .section{
+    padding:28px 18px 0;
+  }
+
+  .section-head h2{
+    font-size:27px;
+  }
+
+  .categories{
+    display:flex;
+    overflow-x:auto;
+    gap:12px;
+    padding-bottom:6px;
+  }
+
+  .category-card{
+    min-width:112px;
+  }
+
+  .product-row{
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+
+  .product-img{
+    height:210px;
+  }
+
+  .product-info{
+    padding:13px;
+  }
+
+  .product-info h3{
+    font-size:14px;
+  }
+
+  .short-desc{
+    font-size:12px;
+  }
+
+  .gift-banner{
+    min-height:220px;
+    padding:26px;
+    border-radius:26px;
+  }
+
+  .gift-banner h2{
+    font-size:32px;
+  }
+
+  .why-grid{
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+  }
+
+  .bottom-nav{
+    display:grid;
+  }
+}
+
+@media(max-width:420px){
+  .product-img{
+    height:190px;
+  }
+
+  .offer-price{
+    font-size:18px;
+  }
+
+  .mood-tag,
+  .occasion-tag{
+    font-size:10px;
+    padding:6px 8px;
+  }
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="top-bar">
+  Shipping ₹40 below ₹499 • Free shipping on ₹499+
+</div>
+
+<header class="header">
+  <div class="logo">
+    <h1>MYRA</h1>
+    <p>Make Home Everywhere</p>
+  </div>
+
+  <div class="header-actions">
+    <button class="icon-btn" onclick="showToast('Wishlist coming soon')">♡</button>
+    <button class="icon-btn" onclick="goCart()">🛒</button>
+    <button class="icon-btn" onclick="goProfile()">👤</button>
+  </div>
+</header>
+
+<section class="search-wrap">
+  <div class="search-box">
+    <span>🔍</span>
+    <input type="search" placeholder="Search candles fragrances gifts">
+  </div>
+</section>
+
+<section class="hero">
+  <div class="hero-card">
+    <div class="hero-content">
+      <span>PREMIUM HOME FRAGRANCE</span>
+      <h2>Make Home Everywhere</h2>
+      <p>Handcrafted scented candles made to bring warmth calmness and beautiful moments into every corner.</p>
+      <button class="hero-btn" onclick="goProducts()">Explore Collection</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Shop By Mood</h2>
+      <p>Choose candles by feeling</p>
+    </div>
+    <button class="view-all" onclick="goProducts()">View All</button>
+  </div>
+
+  <div class="categories" id="categoryList"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>New Arrivals</h2>
+      <p>Freshly poured for beautiful homes</p>
+    </div>
+    <button class="view-all" onclick="goProducts()">View All</button>
+  </div>
+
+  <div class="product-row" id="newArrivalGrid"></div>
+</section>
+
+<section class="section">
+  <div class="gift-banner">
+    <div>
+      <h2>Perfect Gift Collection</h2>
+      <p>Premium candles for festivals birthdays housewarming and meaningful moments.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Best Sellers</h2>
+      <p>Most loved MYRA candles</p>
+    </div>
+    <button class="view-all" onclick="goProducts()">View All</button>
+  </div>
+
+  <div class="product-row" id="bestSellerGrid"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Featured Candles</h2>
+      <p>Selected for mood fragrance and ambience</p>
+    </div>
+  </div>
+
+  <div class="product-row" id="featuredGrid"></div>
+</section>
+
+<section class="section">
+  <div class="section-head">
+    <div>
+      <h2>Why MYRA</h2>
+      <p>Designed for comfort fragrance and gifting</p>
+    </div>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-card">
+      <div>🕯️</div>
+      <h3>Handcrafted</h3>
+      <p>Each candle is made with care for premium home moments.</p>
+    </div>
+
+```
+<div class="why-card">
+  <div>🌿</div>
+  <h3>Premium Fragrance</h3>
+  <p>Carefully selected scents for calm and beautiful spaces.</p>
+</div>
+
+<div class="why-card">
+  <div>🎁</div>
+  <h3>Gift Ready</h3>
+  <p>Perfect for festivals birthdays and housewarming gifts.</p>
+</div>
+
+<div class="why-card">
+  <div>🏡</div>
+  <h3>Home Feeling</h3>
+  <p>Designed to make every place feel warm and peaceful.</p>
+</div>
+```
+
+  </div>
+</section>
+
+<nav class="bottom-nav">
+  <button class="nav-item active" onclick="goHome()"><strong>⌂</strong>Home</button>
+  <button class="nav-item" onclick="goProducts()"><strong>☰</strong>Categories</button>
+  <button class="nav-item" onclick="showToast('Wishlist coming soon')"><strong>♡</strong>Wishlist</button>
+  <button class="nav-item" onclick="goCart()"><strong>🛒</strong>Cart</button>
+  <button class="nav-item" onclick="goProfile()"><strong>👤</strong>Profile</button>
+</nav>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const categories = [
+  { icon:"✨", name:"Positive Vibes" },
+  { icon:"😌", name:"Stress Relief" },
+  { icon:"🧘", name:"Mind Calmness" },
+  { icon:"🌟", name:"Mood Enhancer" },
+  { icon:"❤️", name:"Romantic Ambience" },
+  { icon:"🕉️", name:"Divine Temple Feeling" },
+  { icon:"🙏", name:"Spiritual Peace" },
+  { icon:"🕯️", name:"Prayer & Meditation" },
+  { icon:"💤", name:"Better Sleep" },
+  { icon:"🌿", name:"Fresh Morning Energy" }
+];
+
+const demoProducts = [
+  {
+    product_id:"MY00001",
+    name:"Divine Temple Candle",
+    short_description:"Soft spiritual fragrance for peaceful prayer moments",
+    long_description:"Bring temple like calmness into your home with a warm handcrafted scented candle designed for prayer meditation and spiritual peace.",
+    price:399,
+    mrp:599,
+    rating:4.8,
+    reviews:126,
+    image1:"https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=900&auto=format&fit=crop",
+    image2:"https://images.unsplash.com/photo-1607344645866-009c7d5abffe?q=80&w=900&auto=format&fit=crop",
+    image3:"https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=900&auto=format&fit=crop",
+    image4:"https://images.unsplash.com/photo-1602524818998-73243e798b11?q=80&w=900&auto=format&fit=crop",
+    moods:["Positive Vibes","Divine Temple Feeling","Spiritual Peace","Prayer & Meditation"],
+    occasions:["Puja Room","Meditation","Festival Use"],
+    fragrance:"Sandalwood",
+    burn_time:"4 Hours",
+    wax_type:"Soy Wax",
+    quantity_options:["4 pcs","8 pcs","12 pcs","16 pcs","50 pcs","100 pcs"],
+    label:"Best Seller"
+  },
+  {
+    product_id:"MY00002",
+    name:"Romantic Rose Candle",
+    short_description:"Elegant rose scent for warm romantic evenings",
+    long_description:"Create a soft romantic ambience with a luxury rose scented candle made for date nights beautiful rooms and meaningful moments.",
+    price:549,
+    mrp:799,
+    rating:4.7,
+    reviews:98,
+    image1:"https://images.unsplash.com/photo-1607344645866-009c7d5abffe?q=80&w=900&auto=format&fit=crop",
+    image2:"https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=900&auto=format&fit=crop",
+    image3:"https://images.unsplash.com/photo-1602524818998-73243e798b11?q=80&w=900&auto=format&fit=crop",
+    image4:"https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=900&auto=format&fit=crop",
+    moods:["Mood Enhancer","Romantic Ambience","Stress Relief"],
+    occasions:["Date Night","Gift Purpose","Self Care"],
+    fragrance:"Rose",
+    burn_time:"8 Hours",
+    wax_type:"Beeswax",
+    quantity_options:["4 pcs","8 pcs","12 pcs","16 pcs","50 pcs","100 pcs"],
+    label:"Gift Special"
+  },
+  {
+    product_id:"MY00003",
+    name:"Fresh Morning Candle",
+    short_description:"Refreshing fragrance for energetic morning mood",
+    long_description:"Start your day with fresh positive energy using a clean refreshing candle crafted for focus productivity and peaceful mornings.",
+    price:449,
+    mrp:699,
+    rating:4.6,
+    reviews:84,
+    image1:"https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=900&auto=format&fit=crop",
+    image2:"https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=900&auto=format&fit=crop",
+    image3:"https://images.unsplash.com/photo-1607344645866-009c7d5abffe?q=80&w=900&auto=format&fit=crop",
+    image4:"https://images.unsplash.com/photo-1602524818998-73243e798b11?q=80&w=900&auto=format&fit=crop",
+    moods:["Fresh Morning Energy","Positive Vibes","Mood Enhancer"],
+    occasions:["Office Desk","Tea Time","Reading Time"],
+    fragrance:"Ocean Breeze",
+    burn_time:"12 Hours",
+    wax_type:"Soy Wax",
+    quantity_options:["4 pcs","8 pcs","12 pcs","16 pcs","50 pcs","100 pcs"],
+    label:"New Arrival"
+  },
+  {
+    product_id:"MY00004",
+    name:"Sleep Calm Candle",
+    short_description:"Gentle calming scent for better sleep environment",
+    long_description:"Relax your mind after long days with a soft calming candle made for bedroom comfort stress relief and restful night feelings.",
+    price:499,
+    mrp:749,
+    rating:4.9,
+    reviews:152,
+    image1:"https://images.unsplash.com/photo-1602524818998-73243e798b11?q=80&w=900&auto=format&fit=crop",
+    image2:"https://images.unsplash.com/photo-1607344645866-009c7d5abffe?q=80&w=900&auto=format&fit=crop",
+    image3:"https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=900&auto=format&fit=crop",
+    image4:"https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?q=80&w=900&auto=format&fit=crop",
+    moods:["Stress Relief","Mind Calmness","Better Sleep Environment"],
+    occasions:["Bedtime","Self Care","Evening Relaxation"],
+    fragrance:"Lavender",
+    burn_time:"24 Hours",
+    wax_type:"Soy Wax",
+    quantity_options:["4 pcs","8 pcs","12 pcs","16 pcs","50 pcs","100 pcs"],
+    label:"Top Rated"
+  }
+];
+
+function showToast(msg){
+  const toast = document.getElementById("toast");
+  toast.innerText = msg;
+  toast.classList.add("show");
+  setTimeout(()=>toast.classList.remove("show"),2200);
+}
+
+function goHome(){ location.href="home.html"; }
+function goProducts(){ location.href="products.html"; }
+function goCart(){ location.href="cart.html"; }
+function goProfile(){ location.href="profile.html"; }
+
+function renderCategories(){
+  document.getElementById("categoryList").innerHTML =
+    categories.map(c => `
+      <div class="category-card" onclick="goProducts()">
+        <div class="category-icon">${c.icon}</div>
+        <span>${c.name}</span>
+      </div>
+    `).join("");
+}
+
+function renderProductCard(product){
+  const discount = Math.round(((product.mrp - product.price) / product.mrp) * 100);
+  const viewers = Math.floor(Math.random() * 80) + 18;
+
+  const moodTags = categories.slice(0,6).map(c => `
+    <span class="mood-tag ${product.moods.includes(c.name) ? "active" : ""}">
+      ${c.icon} ${c.name}
+    </span>
+  `).join("");
+
+  return `
+    <div class="product-card" onclick="openProductPopup('${product.product_id}')">
+      <div class="product-img">
+        <img src="${product.image1}" alt="${product.name}">
+        <span class="badge">${product.label}</span>
+      </div>
+
+      <div class="product-info">
+        <h3>${product.name}</h3>
+        <p class="short-desc">${product.short_description}</p>
+
+        <div class="price-row">
+          <span class="offer-price">₹${product.price}</span>
+          <span class="mrp">₹${product.mrp}</span>
+          <span class="discount">${discount}% OFF</span>
+        </div>
+
+        <div class="rating">⭐ ${product.rating} (${product.reviews} reviews)</div>
+        <div class="live">${viewers} people viewing now</div>
+
+        <div class="mood-boxes">
+          ${moodTags}
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function renderProducts(){
+  document.getElementById("newArrivalGrid").innerHTML =
+    demoProducts.map(renderProductCard).join("");
+
+  document.getElementById("bestSellerGrid").innerHTML =
+    demoProducts.slice().reverse().map(renderProductCard).join("");
+
+  document.getElementById("featuredGrid").innerHTML =
+    demoProducts.map(renderProductCard).join("");
+}
+
+function openProductPopup(productId){
+  const product = demoProducts.find(p => p.product_id === productId);
+  if(!product){
+    showToast("Product not found");
+    return;
+  }
+
+  localStorage.setItem("myra_selected_product", JSON.stringify(product));
+  showToast("Product popup will open here");
+}
+
+renderCategories();
+renderProducts();
+</script>
+
+</body>
+</html>
