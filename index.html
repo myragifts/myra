@@ -356,76 +356,150 @@ body{
   }
 
   .hero-side{
-  min-height:240px;
-  border-radius:0;
-}
+    min-height:220px;
+    border-radius:0;
+    background-position:center top;
+  }
 
   .hero-brand{
     display:none;
   }
 
   .login-side{
-  min-height:auto;
-  padding:0 18px 34px;
-  background:transparent;
-  margin-top:-24px;
-  position:relative;
-  z-index:2;
-}
+    min-height:auto;
+    padding:0 18px 34px;
+    background:var(--cream);
+    margin-top:0;
+    position:relative;
+    z-index:2;
+  }
+
+  .login-side::before{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    top:-82px;
+    height:86px;
+    background:var(--cream);
+    z-index:0;
+  }
 
   .login-card{
-  max-width:100%;
-  background:rgba(255,253,251,.98);
-  border-radius:40px 40px 28px 28px;
-  padding:22px 22px 28px;
-  box-shadow:0 20px 50px rgba(0,0,0,.14);
-}
+    position:relative;
+    z-index:1;
+    max-width:100%;
+    background:rgba(255,253,251,.99);
+    border-radius:40px 40px 28px 28px;
+    padding:20px 22px 28px;
+    margin-top:-62px;
+    box-shadow:0 20px 50px rgba(0,0,0,.14);
+  }
 
   .logo-mark{
-  width:74px;
-  height:74px;
-  margin-top:-58px;
-}
+    width:76px;
+    height:76px;
+    margin-top:-58px;
+    margin-bottom:14px;
+    border:7px solid #fff;
+  }
 
   .logo-mark span{
-    font-size:42px;
+    font-size:40px;
   }
 
   .brand-name{
-  font-size:38px;
-  margin-top:6px;
-}
+    font-size:38px;
+    margin-top:2px;
+  }
+
+  .tagline{
+    font-size:14px;
+    margin-top:6px;
+  }
+
+  .gold-line{
+    margin:16px auto 22px;
+  }
 
   .welcome h2{
-  font-size:27px;
-  margin-bottom:8px;
-}
+    font-size:27px;
+    margin-bottom:6px;
+  }
+
+  .welcome p{
+    font-size:16px;
+    margin-bottom:16px;
+  }
 
   .input-box{
-    height:58px;
+    height:56px;
+    margin-bottom:14px;
   }
 
   .signin-btn{
-    height:58px;
+    height:56px;
+    margin-top:4px;
+  }
+
+  .divider{
+    margin:18px 0;
+  }
+
+  .signup-btn{
+    height:54px;
+  }
+
+  .forgot-row{
+    margin-top:18px;
+  }
+
+  .secure-text{
+    margin-top:22px;
   }
 }
 
 @media(max-width:420px){
   .hero-side{
-    min-height:280px;
+    min-height:210px;
+  }
+
+  .login-side{
+    padding:0 16px 30px;
+  }
+
+  .login-side::before{
+    top:-78px;
+    height:82px;
   }
 
   .login-card{
-    border-radius:28px;
-    padding:28px 18px 24px;
+    border-radius:38px 38px 26px 26px;
+    padding:18px 18px 24px;
+    margin-top:-58px;
+  }
+
+  .logo-mark{
+    width:72px;
+    height:72px;
+    margin-top:-54px;
+  }
+
+  .logo-mark span{
+    font-size:38px;
   }
 
   .brand-name{
-    font-size:40px;
+    font-size:36px;
   }
 
   .welcome h2{
-    font-size:29px;
+    font-size:26px;
+  }
+
+  .welcome p{
+    font-size:15px;
+    margin-bottom:14px;
   }
 
   .forgot-row{
