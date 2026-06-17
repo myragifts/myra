@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>MYRA | Make Home Everywhere</title>
+
+<link rel="manifest" href="manifest.json">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script src="config.js"></script>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#FFF8F0;
+min-height:100vh;
+overflow-x:hidden;
+}
+
+.page{
+min-height:100vh;
+display:flex;
+}
+
+.left{
+flex:1;
+background:url('https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=1600&auto=format&fit=crop') center center/cover;
+position:relative;
+}
+
+.left::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(
+180deg,
+rgba(0,0,0,.15),
+rgba(0,0,0,.45)
+);
+}
+
+.brand-overlay{
+position:absolute;
+left:60px;
+bottom:60px;
+z-index:2;
+color:#fff;
+}
+
+.brand-overlay h1{
+font-family:'Playfair Display',serif;
+font-size:72px;
+letter-spacing:4px;
+margin-bottom:8px;
+}
+
+.brand-overlay p{
+font-size:20px;
+opacity:.95;
+}
+
+.right{
+width:520px;
+background:#FFFDFB;
+display:flex;
+justify-content:center;
+align-items:center;
+padding:40px;
+}
+
+.login-card{
+width:100%;
+max-width:420px;
+}
+
+.logo-wrap{
+text-align:center;
+margin-bottom:20px;
+}
+
+.logo-circle{
+width:92px;
+height:92px;
+border-radius:50%;
+background:linear-gradient(135deg,#C9A227,#F5E3A3);
+display:flex;
+justify-content:center;
+align-items:center;
+margin:auto;
+font-size:40px;
+box-shadow:0 10px 25px rgba(0,0,0,.12);
+}
+
+.brand{
+font-family:'Playfair Display',serif;
+font-size:54px;
+letter-spacing:3px;
+color:#2E2E2E;
+margin-top:16px;
+}
+
+.tagline{
+margin-top:6px;
+font-size:15px;
+color:#7A8B6F;
+}
+
+.welcome{
+margin-top:34px;
+margin-bottom:28px;
+text-align:center;
+}
+
+.welcome h2{
+font-family:'Playfair Display',serif;
+font-size:34px;
+color:#2E2E2E;
+margin-bottom:8px;
+}
+
+.welcome p{
+color:#777;
+font-size:15px;
+}
+
+.input-box{
+margin-bottom:18px;
+}
+
+.input-box input{
+width:100%;
+height:58px;
+border:1px solid #E8E0D4;
+border-radius:16px;
+padding:0 18px;
+font-size:16px;
+outline:none;
+background:#fff;
+transition:.3s;
+}
+
+.input-box input:focus{
+border-color:#C9A227;
+box-shadow:0 0 0 4px rgba(201,162,39,.08);
+}
+
+.login-btn{
+width:100%;
+height:58px;
+border:none;
+border-radius:16px;
+background:linear-gradient(135deg,#2E2E2E,#4A4A4A);
+color:#fff;
+font-size:17px;
+font-weight:600;
+cursor:pointer;
+margin-top:10px;
+}
+
+.login-btn:hover{
+opacity:.95;
+}
+
+</style>
+</head>
+<body>
+
+<div class="page">
+
+<div class="left">
+
+<div class="brand-overlay">
+<h1>MYRA</h1>
+<p>Make Home Everywhere</p>
+</div>
+
+</div>
+
+<div class="right">
+
+<div class="login-card">
+
+<div class="logo-wrap">
+
+<div class="logo-circle">🕯️</div>
+
+<div class="brand">MYRA</div>
+
+<div class="tagline">
+Make Home Everywhere
+</div>
+
+</div>
+
+<div class="welcome">
+<h2>Welcome Back</h2>
+<p>Sign in to continue shopping</p>
+</div>
+
+<div class="input-box">
+<input
+type="text"
+id="name"
+placeholder="Enter your name">
+</div>
+
+<div class="input-box">
+<input
+type="tel"
+id="phone"
+placeholder="Enter your phone number">
+</div>
+
+<button class="login-btn" onclick="loginUser()">
+SIGN IN
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+function loginUser(){
+
+const name =
+document.getElementById("name").value.trim();
+
+const phone =
+document.getElementById("phone").value.trim();
+
+if(!name){
+alert("Please enter your name");
+return;
+}
+
+if(!phone){
+alert("Please enter your phone number");
+return;
+}
+
+localStorage.setItem(
+CONFIG.STORAGE_KEYS.USER_NAME,
+name
+);
+
+localStorage.setItem(
+CONFIG.STORAGE_KEYS.USER_PHONE,
+phone
+);
+
+window.location.href =
+"home.html";
+
+}
+
+</script>
+
+</body>
+</html>
