@@ -288,6 +288,14 @@ body{
   margin-bottom:8px;
 }
 
+.product-id-card{
+  color:#777;
+  font-size:13px;
+  font-weight:700;
+  letter-spacing:.7px;
+  margin-bottom:8px;
+}
+
 .short-desc{
   color:#777;
   font-size:13px;
@@ -563,6 +571,10 @@ body{
     font-size:14px;
   }
 
+  .product-id-card{
+    font-size:12px;
+  }
+
   .short-desc{
     font-size:12px;
   }
@@ -776,9 +788,9 @@ const demoProducts = [
     moods:["Positive Vibes","Divine Temple Feeling","Spiritual Peace","Prayer & Meditation"],
     occasions:["Puja Room","Meditation","Festival Use"],
     fragrance:"Sandalwood",
-    burn_time:"4 Hours",
+    burn_time:"240 minutes",
     wax_type:"Soy Wax",
-    quantity_options:["4 pcs","8 pcs","12 pcs","16 pcs","50 pcs","100 pcs"],
+    quantity_options:["1 pcs","2 pcs","3 pcs","4 pcs","6 pcs","12 pcs","24 pcs","50 pcs","100 pcs"],
     label:"Best Seller"
   },
   {
@@ -797,9 +809,9 @@ const demoProducts = [
     moods:["Mood Enhancer","Romantic Ambience","Stress Relief"],
     occasions:["Date Night","Gift Purpose","Self Care"],
     fragrance:"Rose",
-    burn_time:"8 Hours",
+    burn_time:"180 minutes",
     wax_type:"Beeswax",
-    quantity_options:["4 pcs","8 pcs","12 pcs","16 pcs","50 pcs","100 pcs"],
+    quantity_options:["1 pcs","2 pcs","3 pcs","4 pcs","6 pcs","12 pcs","24 pcs","50 pcs","100 pcs"],
     label:"Gift Special"
   },
   {
@@ -818,9 +830,9 @@ const demoProducts = [
     moods:["Fresh Morning Energy","Positive Vibes","Mood Enhancer"],
     occasions:["Office Desk","Tea Time","Reading Time"],
     fragrance:"Ocean Breeze",
-    burn_time:"12 Hours",
+    burn_time:"120 minutes",
     wax_type:"Soy Wax",
-    quantity_options:["4 pcs","8 pcs","12 pcs","16 pcs","50 pcs","100 pcs"],
+    quantity_options:["1 pcs","2 pcs","3 pcs","4 pcs","6 pcs","12 pcs","24 pcs","50 pcs","100 pcs"],
     label:"New Arrival"
   },
   {
@@ -839,9 +851,9 @@ const demoProducts = [
     moods:["Stress Relief","Mind Calmness","Better Sleep Environment"],
     occasions:["Bedtime","Self Care","Evening Relaxation"],
     fragrance:"Lavender",
-    burn_time:"24 Hours",
+    burn_time:"300 minutes",
     wax_type:"Soy Wax",
-    quantity_options:["4 pcs","8 pcs","12 pcs","16 pcs","50 pcs","100 pcs"],
+    quantity_options:["1 pcs","2 pcs","3 pcs","4 pcs","6 pcs","12 pcs","24 pcs","50 pcs","100 pcs"],
     label:"Top Rated"
   }
 ];
@@ -869,15 +881,6 @@ function renderCategories(){
 }
 
 function renderProductCard(product){
-  const discount = Math.round(((product.mrp - product.price) / product.mrp) * 100);
-  const viewers = Math.floor(Math.random() * 80) + 18;
-
-  const moodTags = categories.slice(0,6).map(c => `
-    <span class="mood-tag ${product.moods.includes(c.name) ? "active" : ""}">
-      ${c.icon} ${c.name}
-    </span>
-  `).join("");
-
   return `
     <div class="product-card" onclick="openMyraProduct('${product.product_id}')">
       <div class="product-img">
@@ -886,21 +889,12 @@ function renderProductCard(product){
       </div>
 
       <div class="product-info">
+        <div class="product-id-card">${product.product_id}</div>
         <h3>${product.name}</h3>
-        <p class="short-desc">${product.short_description}</p>
-
         <div class="price-row">
           <span class="offer-price">₹${product.price}</span>
-          <span class="mrp">₹${product.mrp}</span>
-          <span class="discount">${discount}% OFF</span>
         </div>
-
-        <div class="rating">⭐ ${product.rating} (${product.reviews} reviews)</div>
-        <div class="live">${viewers} people viewing now</div>
-
-        <div class="mood-boxes">
-          ${moodTags}
-        </div>
+        <p class="short-desc">${product.short_description}</p>
       </div>
     </div>
   `;
