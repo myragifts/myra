@@ -1,175 +1,168 @@
 /* MYRA PRODUCT POPUP - CLEAN FINAL PART 1 */
 
 (function(){
-  if(document.getElementById("myraPopupStyle")) return;
+if(document.getElementById("myraPopupStyle")) return;
 
-  const style = document.createElement("style");
-  style.id = "myraPopupStyle";
+const style=document.createElement("style");
+style.id="myraPopupStyle";
 
-  style.innerHTML = `
+style.innerHTML=`
 .myra-popup-overlay{
-  position:fixed;
-  inset:0;
-  background:#F8F8F8;
-  z-index:99999;
-  overflow-y:auto;
-  display:none;
-  font-family:'Poppins',sans-serif;
+position:fixed;
+inset:0;
+background:#F8F8F8;
+z-index:99999;
+overflow-y:auto;
+display:none;
+font-family:'Poppins',sans-serif;
 }
 .myra-popup-overlay.show{display:block;}
 .myra-popup-wrap{
-  min-height:100vh;
-  background:#F8F8F8;
-  padding-bottom:120px;
+min-height:100vh;
+background:#F8F8F8;
+padding-bottom:120px;
 }
 .myra-gallery{
-  position:relative;
-  width:100%;
-  height:72vh;
-  overflow:hidden;
-  background:#F3EEE6;
+position:relative;
+width:100%;
+height:72vh;
+overflow:hidden;
+background:#F3EEE6;
 }
 .myra-main-img{
-  display:flex;
-  width:100%;
-  height:100%;
-  transition:transform .35s ease;
+display:flex;
+width:100%;
+height:100%;
+transition:transform .35s ease;
 }
 .myra-main-img img{
-  min-width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:center;
-  user-select:none;
-  -webkit-user-drag:none;
+min-width:100%;
+height:100%;
+object-fit:cover;
+object-position:center;
+user-select:none;
+-webkit-user-drag:none;
 }
 .myra-close{
-  position:absolute;
-  top:18px;
-  left:18px;
-  z-index:10;
-  background:transparent;
-  border:none;
-  font-size:42px;
-  font-weight:700;
-  color:#fff;
-  cursor:pointer;
-  text-shadow:0 2px 10px rgba(0,0,0,.55);
-  line-height:1;
-  padding:0;
+position:absolute;
+top:18px;
+left:18px;
+z-index:10;
+background:transparent;
+border:none;
+font-size:42px;
+font-weight:700;
+color:#fff;
+cursor:pointer;
+text-shadow:0 2px 10px rgba(0,0,0,.55);
 }
 .myra-arrow{
-  position:absolute;
-  top:50%;
-  transform:translateY(-50%);
-  width:52px;
-  height:52px;
-  border-radius:50%;
-  border:none;
-  background:rgba(255,255,255,.92);
-  font-size:34px;
-  font-weight:700;
-  cursor:pointer;
-  z-index:10;
-  box-shadow:0 10px 28px rgba(0,0,0,.12);
+position:absolute;
+top:50%;
+transform:translateY(-50%);
+width:52px;
+height:52px;
+border-radius:50%;
+border:none;
+background:rgba(255,255,255,.92);
+font-size:34px;
+font-weight:700;
+cursor:pointer;
+z-index:10;
 }
 .myra-arrow.left{left:4px;}
 .myra-arrow.right{right:4px;}
 .myra-dots{
-  position:absolute;
-  bottom:18px;
-  left:0;
-  right:0;
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  z-index:10;
+position:absolute;
+bottom:18px;
+left:0;
+right:0;
+display:flex;
+justify-content:center;
+gap:12px;
+z-index:10;
 }
 .myra-dot{
-  width:14px;
-  height:14px;
-  border-radius:50%;
-  background:rgba(255,255,255,.75);
+width:14px;
+height:14px;
+border-radius:50%;
+background:rgba(255,255,255,.75);
 }
 .myra-dot.active{background:#D4AF37;}
-
 .myra-info-card{
-  margin-top:-6px;
-  background:#fff;
-  border-radius:34px 34px 0 0;
-  padding:34px 24px 130px;
-  box-shadow:0 -12px 45px rgba(0,0,0,.10);
+margin-top:-6px;
+background:#fff;
+border-radius:34px 34px 0 0;
+padding:34px 24px 130px;
+box-shadow:0 -12px 45px rgba(0,0,0,.10);
 }
 .myra-product-id{
-  font-size:14px;
-  font-weight:700;
-  color:#6B7280;
-  margin-bottom:14px;
-  letter-spacing:1.2px;
+font-size:14px;
+font-weight:700;
+color:#6B7280;
+margin-bottom:14px;
+letter-spacing:1px;
 }
 .myra-title{
-  font-family:'Playfair Display',serif;
-  font-size:38px;
-  line-height:1.12;
-  font-weight:700;
-  color:#111827;
-  margin-bottom:24px;
+font-size:38px;
+line-height:1.12;
+font-weight:900;
+color:#111827;
+margin-bottom:24px;
+font-family:'Playfair Display',serif;
 }
 .myra-price-box{
-  width:100%;
-  background:#FFFCF7;
-  border:1px solid #EEE7D7;
-  border-radius:26px;
-  padding:18px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  margin-bottom:18px;
+width:100%;
+background:#FFFCF7;
+border:1px solid #EEE7D7;
+border-radius:26px;
+padding:18px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:12px;
+margin-bottom:18px;
 }
 .myra-mrp{
-  font-size:22px;
-  text-decoration:line-through;
-  color:#9CA3AF;
-  font-weight:700;
+font-size:22px;
+text-decoration:line-through;
+color:#9CA3AF;
+font-weight:700;
 }
 .myra-price{
-  font-size:40px;
-  font-weight:900;
-  color:#111827;
+font-size:40px;
+font-weight:900;
+color:#111827;
 }
 .myra-discount{
-  background:#E7FAF3;
-  color:#059669;
-  padding:10px 14px;
-  border-radius:999px;
-  font-size:14px;
-  font-weight:800;
-  white-space:nowrap;
+background:#E7FAF3;
+color:#059669;
+padding:10px 14px;
+border-radius:999px;
+font-size:14px;
+font-weight:800;
 }
 .qty-premium-box{
-  background:linear-gradient(135deg,#FFFDF8,#FFF8E6);
-  border:1px solid #E7D08A;
-  padding:18px;
-  border-radius:24px;
-  margin-bottom:22px;
-  box-shadow:0 12px 34px rgba(201,162,39,.10);
+background:linear-gradient(135deg,#FFFDF8,#FFF8E6);
+border:1px solid #E7D08A;
+padding:18px;
+border-radius:24px;
+margin-bottom:22px;
 }
 .qty-title{
-  font-family:'Playfair Display',serif;
-  font-size:22px;
-  font-weight:700;
-  color:#111827;
-  margin-bottom:4px;
+font-size:22px;
+font-family:'Playfair Display',serif;
+font-weight:700;
+color:#111827;
+margin-bottom:4px;
 }
 .qty-sub{
-  font-size:13px;
-  color:#7A6B4D;
-  margin-bottom:14px;
-  font-weight:600;
+font-size:13px;
+color:#7A6B4D;
+margin-bottom:14px;
+font-weight:600;
 }
-`;
- .myra-live{
+.myra-live{
 display:inline-flex;
 align-items:center;
 gap:8px;
@@ -209,14 +202,15 @@ font-weight:700;
 font-size:15px;
 cursor:pointer;
 transition:.25s;
+user-select:none;
+-webkit-user-select:none;
+-webkit-touch-callout:none;
+touch-action:manipulation;
 }
 .option-btn.active{
 background:#FFF8E6;
 border:1px solid #D4AF37;
 color:#8B6914;
-}
-.option-btn.locked{
-pointer-events:none;
 }
 .shipping-card{
 background:#F5F7FF;
@@ -234,7 +228,6 @@ border:1px solid #F0E0AE;
 border-radius:26px;
 padding:26px;
 margin-bottom:28px;
-box-shadow:0 12px 30px rgba(212,175,55,.08);
 }
 .emotion-card p{
 font-size:24px;
@@ -310,6 +303,7 @@ let myraPopupProduct=null;
 let myraCurrentImage=0;
 let selectedQty="";
 let selectedFragrance="";
+
 function openProductPopup(productId){
 
 let product=null;
@@ -360,27 +354,31 @@ popup.innerHTML=`
 
 <button class="myra-close"
 onclick="closeMyraPopup()">
-× </button>
+×
+</button>
 
 <button class="myra-arrow left"
 onclick="changeMyraImage(-1)">
-‹ </button>
+‹
+</button>
 
 <button class="myra-arrow right"
 onclick="changeMyraImage(1)">
-› </button>
+›
+</button>
 
 <div class="myra-main-img"
 id="myraImageSlider">
 
-${images.map(img=>`<img src="${img}">`).join("")}
+${images.map(img=>`
+<img src="${img}">
+`).join("")}
 
 </div>
 
 <div class="myra-dots">
 
 ${images.map((_,i)=>`
-
 <div class="myra-dot
 ${i===0?'active':''}">
 </div>
@@ -416,6 +414,8 @@ ${discount}% OFF
 
 </div>
 
+<!-- WORK NO 7 -->
+
 <div class="qty-premium-box">
 
 <div class="qty-title">
@@ -423,15 +423,25 @@ Choose Quantity
 </div>
 
 <div class="qty-sub">
-Better value on bigger packs
+Better value on higher quantity packs
 </div>
 
 <div class="option-grid">
 
-${product.quantity_options.map(q=>`
+${[
+"1 pcs",
+"2 pcs",
+"3 pcs",
+"4 pcs",
+"6 pcs",
+"12 pcs",
+"24 pcs",
+"50 pcs",
+"100 pcs"
+].map(q=>`
 
 <button
-class="option-btn"
+class="option-btn qty-btn"
 onclick="selectQty(this,'${q}')">
 
 ${q}
@@ -445,11 +455,11 @@ ${q}
 </div>
 
 <div class="myra-live">
-🔥 ${viewers} people viewing now
+👀 ${viewers} people viewing now
 </div>
 
 <div class="myra-description">
-${product.long_description}
+${product.long_description || ""}
 </div>
 
 <div class="myra-section-title">
@@ -481,4 +491,214 @@ ${f}
 `).join("")}
 
 </div>
-  
+<div class="myra-section-title">
+Burn Time
+</div>
+
+<div class="option-grid">
+  <button class="option-btn active" disabled>
+    ${product.burn_time || "240 minutes"}
+  </button>
+</div>
+
+<div class="myra-section-title">
+Wax Type
+</div>
+
+<div class="option-grid">
+
+${["Soy Wax","Beeswax","Paraffin Wax"].map(w=>`
+
+<button
+class="option-btn ${w===product.wax_type?'active':''}">
+${w}
+</button>
+
+`).join("")}
+
+</div>
+
+<div class="myra-section-title">
+Best For
+</div>
+
+<div class="option-grid">
+
+${[
+"🏡 Home Decor",
+"🎁 Gift Purpose",
+"🕉️ Puja Room",
+"💕 Date Night",
+"🛁 Self Care",
+"🎉 Festival Use",
+"💼 Office Desk",
+"🧘 Meditation"
+].map(o=>`
+
+<button class="option-btn active">
+${o}
+</button>
+
+`).join("")}
+
+</div>
+
+<div class="emotion-card">
+  <p>
+    ${product.emotional_message || "Light this candle and transform your space into a moment of calm happiness."}
+  </p>
+</div>
+
+<div class="shipping-card">
+  Below ₹499 → Shipping ₹40
+  <br>
+  Above ₹499 → Free Shipping
+</div>
+
+<div class="myra-section-title">
+Why You'll Love It
+</div>
+
+<div class="option-grid">
+  <button class="option-btn active">Long Lasting Fragrance</button>
+  <button class="option-btn active">Premium Gift Feel</button>
+  <button class="option-btn active">Beautiful Home Decor</button>
+  <button class="option-btn active">Peaceful Ambience</button>
+</div>
+
+<div class="myra-section-title">
+Customer Reviews
+</div>
+
+<div class="review-card">
+  ⭐ ${product.rating || "4.8"} Rating • ${product.reviews || "120"} Reviews
+</div>
+
+</div>
+
+</div>
+
+<div class="myra-bottom-bar">
+  <button class="myra-btn myra-cart-btn" onclick="myraAddToCart()">
+    More Like This
+  </button>
+
+  <button class="myra-btn myra-buy-btn" onclick="myraBuyNow()">
+    Add To Cart
+  </button>
+</div>
+
+`;
+
+document.body.appendChild(popup);
+document.body.style.overflow="hidden";
+
+updateMyraSlider();
+
+}
+
+
+function createMyraToast(message){
+  const old=document.getElementById("myraToast");
+  if(old) old.remove();
+
+  const toast=document.createElement("div");
+  toast.id="myraToast";
+  toast.className="myra-toast";
+  toast.innerHTML=`✨ ${message}`;
+
+  document.body.appendChild(toast);
+
+  setTimeout(()=>{
+    toast.remove();
+  },3000);
+}
+
+function closeMyraPopup(){
+  const popup=document.getElementById("myraProductPopup");
+  if(popup) popup.remove();
+
+  document.body.style.overflow="";
+}
+
+function changeMyraImage(direction){
+  const images=[
+    myraPopupProduct.image1,
+    myraPopupProduct.image2,
+    myraPopupProduct.image3,
+    myraPopupProduct.image4
+  ].filter(Boolean);
+
+  myraCurrentImage += direction;
+
+  if(myraCurrentImage < 0){
+    myraCurrentImage = images.length - 1;
+  }
+
+  if(myraCurrentImage >= images.length){
+    myraCurrentImage = 0;
+  }
+
+  updateMyraSlider();
+}
+
+function updateMyraSlider(){
+  const slider=document.getElementById("myraImageSlider");
+
+  if(slider){
+    slider.style.transform=
+    `translateX(-${myraCurrentImage*100}%)`;
+  }
+
+  document.querySelectorAll(".myra-dot").forEach((dot,index)=>{
+    dot.classList.toggle("active",index===myraCurrentImage);
+  });
+}
+
+function selectFragrance(btn,value){
+  selectedFragrance=value;
+
+  document.querySelectorAll(".option-btn").forEach(b=>{
+    if(b.innerText.trim()===value){
+      b.classList.add("active");
+    }
+  });
+
+  btn.classList.add("active");
+}
+
+function selectQty(btn,value){
+  selectedQty=value;
+
+  document.querySelectorAll(".qty-btn").forEach(b=>{
+    b.classList.remove("active");
+  });
+
+  btn.classList.add("active");
+}
+
+function myraAddToCart(){
+  if(!selectedQty){
+    createMyraToast("Please select quantity");
+    return;
+  }
+
+  createMyraToast(`${selectedQty} added to cart`);
+}
+
+function myraBuyNow(){
+  if(!selectedQty){
+    createMyraToast("Please select quantity");
+    return;
+  }
+
+  createMyraToast(`${selectedQty} added to cart`);
+}
+
+window.openProductPopup=openProductPopup;
+window.closeMyraPopup=closeMyraPopup;
+window.changeMyraImage=changeMyraImage;
+window.selectFragrance=selectFragrance;
+window.selectQty=selectQty;
+window.myraAddToCart=myraAddToCart;
+window.myraBuyNow=myraBuyNow;
