@@ -523,32 +523,12 @@ ${product.long_description || ""}
 <div class="myra-section-title">
 Fragrance
 </div>
-
 <div class="option-grid">
-
-${[
-"Vanilla",
-"Lavender",
-"Rose",
-"Jasmine",
-"Sandalwood",
-"Coffee",
-"Ocean Breeze",
-"Mixed"
-].map(f=>`
-
-<button
-class="option-btn
-${f===product.fragrance?'active':''}"
-onclick="selectFragrance(this,'${f}')">
-
-${f}
-
-</button>
-
-`).join("")}
-
+  <button class="option-btn active" disabled>
+    ${product.fragrance || "Sandalwood"}
+  </button>
 </div>
+
 <div class="myra-section-title">
 Burn Time
 </div>
