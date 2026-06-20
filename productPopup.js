@@ -335,15 +335,28 @@ color:#111827;
 .myra-toast{
 position:fixed;
 left:50%;
-bottom:100px;
+bottom:110px;
 transform:translateX(-50%);
-background:#2E2E2E;
-color:#fff;
-padding:14px 20px;
-border-radius:999px;
-font-weight:700;
+
+background:linear-gradient(135deg,#FFF8E6,#FFF3C4);
+border:2px solid #D4AF37;
+
+color:#8B6914;
+font-size:17px;
+font-weight:800;
+
+padding:16px 24px;
+border-radius:18px;
+
+box-shadow:
+0 0 0 1px rgba(212,175,55,.25),
+0 10px 30px rgba(212,175,55,.25);
+
 z-index:100001;
 animation:fadeToast 3s forwards;
+
+text-align:center;
+max-width:85%;
 }
 @keyframes fadeToast{
 0%{opacity:0}
