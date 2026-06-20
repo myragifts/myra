@@ -35,13 +35,18 @@ width:100%;
 height:100%;
 transition:transform .35s ease;
 }
-.myra-main-img img{
-min-width:100%;
-height:100%;
-object-fit:cover;
-object-position:center;
-user-select:none;
--webkit-user-drag:none;
+@media (min-width:768px){
+
+  .myra-gallery{
+    height:70vh;
+    background:#0f0f0f;
+  }
+
+  .myra-main-img img{
+    object-fit:contain;
+    object-position:center;
+  }
+
 }
 .myra-close{
 position:absolute;
