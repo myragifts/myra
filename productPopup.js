@@ -470,9 +470,7 @@ Better value on higher quantity packs
 ${[
 "1 pcs",
 "2 pcs",
-"3 pcs",
 "4 pcs",
-"6 pcs",
 "12 pcs",
 "24 pcs",
 "50 pcs",
