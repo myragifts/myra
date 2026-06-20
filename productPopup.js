@@ -43,7 +43,7 @@ transition:transform .35s ease;
   }
 
   .myra-main-img img{
-    object-fit:contain;
+    object-fit:cover;
     object-position:center;
   }
 
