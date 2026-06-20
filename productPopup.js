@@ -258,6 +258,34 @@ font-size:16px;
 font-weight:800;
 margin-bottom:28px;
 }
+.qty-price-box{
+background:#FFFDF7;
+border:1px solid #E7D08A;
+border-radius:20px;
+padding:16px;
+margin-top:14px;
+margin-bottom:22px;
+}
+
+.qty-final-price{
+font-size:28px;
+font-weight:900;
+color:#111827;
+margin:8px 0;
+}
+
+.qty-old-price{
+font-size:18px;
+color:#9CA3AF;
+text-decoration:line-through;
+margin-right:10px;
+}
+
+.qty-save-msg{
+font-size:14px;
+font-weight:700;
+color:#8B6914;
+}
 .myra-bottom-bar{
 position:fixed;
 left:0;
