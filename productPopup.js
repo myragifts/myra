@@ -231,14 +231,18 @@ box-shadow:
 transform:translateY(-2px);
 }
 .shipping-card{
-background:#F5F7FF;
-border:1px solid #DDE4FF;
-color:#334155;
-border-radius:24px;
-padding:20px;
+background:#FFFBF0;
+border:1px solid #E7D08A;
+color:#8B6914;
+border-radius:20px;
+padding:18px 22px;
 margin-bottom:28px;
 line-height:1.9;
 font-weight:700;
+
+box-shadow:
+0 0 0 1px rgba(212,175,55,.15),
+0 6px 18px rgba(212,175,55,.12);
 }
 .emotion-card{
 background:linear-gradient(135deg,#FFFDF7,#FFF7E8);
