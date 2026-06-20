@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Categories | MYRA Candles</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+--gold:#D4AF37;
+--gold-dark:#8B6914;
+--bg:#F9F5EF;
+--card:#FFFFFF;
+--border:#E9DFC9;
+--text:#1E1E1E;
+--muted:#777;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:var(--bg);
+padding-bottom:90px;
+}
+
+.header{
+padding:18px;
+background:#fff;
+border-bottom:1px solid var(--border);
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.logo-wrap h1{
+font-family:'Cormorant Garamond',serif;
+font-size:54px;
+line-height:1;
+letter-spacing:4px;
+color:#2C1A0B;
+}
+
+.logo-wrap p{
+color:var(--gold-dark);
+font-size:13px;
+letter-spacing:4px;
+margin-top:4px;
+}
+
+.header-icons{
+display:flex;
+gap:12px;
+}
+
+.icon-btn{
+width:44px;
+height:44px;
+border-radius:50%;
+border:1px solid var(--border);
+background:#fff;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+cursor:pointer;
+}
+
+.search-wrap{
+padding:18px;
+}
+
+.search-box{
+background:#fff;
+border:1px solid var(--border);
+border-radius:18px;
+padding:14px 18px;
+display:flex;
+align-items:center;
+gap:12px;
+}
+
+.search-box input{
+border:none;
+outline:none;
+width:100%;
+font-size:15px;
+background:none;
+}
+
+.section-title{
+padding:0 18px;
+margin-top:8px;
+margin-bottom:16px;
+}
+
+.section-title h2{
+font-family:'Cormorant Garamond',serif;
+font-size:42px;
+color:#1D1D1D;
+}
+
+.section-title p{
+font-size:15px;
+color:#777;
+}
+
+.category-grid{
+padding:0 18px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:14px;
+}
+
+.category-card{
+background:#fff;
+border:1px solid var(--border);
+border-radius:24px;
+overflow:hidden;
+cursor:pointer;
+transition:.25s;
+}
+
+.category-card:hover{
+transform:translateY(-2px);
+}
+
+.category-card img{
+width:100%;
+height:150px;
+object-fit:cover;
+display:block;
+}
+
+.category-card h3{
+padding:16px;
+text-align:center;
+font-family:'Cormorant Garamond',serif;
+font-size:28px;
+color:#2C1A0B;
+}
+
+.bottom-nav{
+position:fixed;
+left:0;
+right:0;
+bottom:0;
+background:#fff;
+border-top:1px solid var(--border);
+display:flex;
+justify-content:space-around;
+padding:10px 0;
+z-index:9999;
+}
+
+.bottom-nav a{
+text-decoration:none;
+color:#666;
+font-size:12px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:4px;
+}
+
+.bottom-nav a.active{
+color:var(--gold-dark);
+font-weight:600;
+}
+
+.nav-icon{
+font-size:22px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<div class="logo-wrap">
+<h1>MYRA</h1>
+<p>CANDLES</p>
+</div>
+
+<div class="header-icons">
+<div class="icon-btn">♡</div>
+<div class="icon-btn">🛒</div>
+<div class="icon-btn">👤</div>
+</div>
+</div>
+
+<div class="search-wrap">
+<div class="search-box">
+🔍
+<input type="text" placeholder="Search candles, fragrances...">
+</div>
+</div>
+
+<div class="section-title">
+<h2>Shop By Category</h2>
+<p>Find candles for every moment</p>
+</div>
+
+<div class="category-grid">
+
+<div class="category-card" onclick="loadCategory('Daily Use')">
+<img src="https://images.unsplash.com/photo-1603006905003-be475563bc59?w=800">
+<h3>🏠 Daily Use</h3>
+</div>
+
+<div class="category-card" onclick="loadCategory('Divine')">
+<img src="https://images.unsplash.com/photo-1604537466573-5e94508fd243?w=800">
+<h3>🕉️ Divine & Spiritual</h3>
+</div>
+
+<div class="category-card" onclick="loadCategory('Gift')">
+<img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800">
+<h3>🎁 Gifts & Special Occasions</h3>
+</div>
+
+<div class="category-card" onclick="loadCategory('Celebrations')">
+<img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=800">
+<h3>🎉 Celebrations</h3>
+</div>
+
+</div>
+
+<!-- PRODUCTS SECTION STARTS IN PART 2 -->
+
+<nav class="bottom-nav">
+
+<a href="home.html">
+<div class="nav-icon">🏠</div>
+Home
+</a>
+
+<a href="category.html" class="active">
+<div class="nav-icon">☰</div>
+Categories
+</a>
+
+<a href="wishlist.html">
+<div class="nav-icon">♡</div>
+Wishlist
+</a>
+
+<a href="cart.html">
+<div class="nav-icon">🛒</div>
+Cart
+</a>
+
+<a href="profile.html">
+<div class="nav-icon">👤</div>
+Profile
+</a>
+
+</nav>
