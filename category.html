@@ -617,7 +617,7 @@ function renderProducts(list){
     const discount = Math.round(((p.mrp - p.price) / p.mrp) * 100);
 
     return `
-      <div class="product-card">
+      <div class="product-card" onclick="openProductPopup('${p.product_id}')">
         <img class="product-img" src="${p.image1}">
         <div class="badge">${p.tag}</div>
         <div class="wish-btn">♡</div>
@@ -636,7 +636,7 @@ function renderProducts(list){
             <div class="off">${discount}% OFF</div>
           </div>
 
-          <button class="view-btn" onclick="openProductPopup('${p.product_id}')">
+          <button class="view-btn" onclick="event.stopPropagation(); openProductPopup('${p.product_id}')">
             View Details
           </button>
         </div>
