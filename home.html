@@ -865,10 +865,25 @@ function showToast(msg){
   setTimeout(()=>toast.classList.remove("show"),2200);
 }
 
-function goHome(){ location.href="home.html"; }
-function goProducts(){ location.href="products.html"; }
-function goCart(){ location.href="cart.html"; }
-function goProfile(){ location.href="profile.html"; }
+function goHome(){
+  location.href="home.html";
+}
+
+function goCategory(){
+  location.href="category.html";
+}
+
+function goWishlist(){
+  location.href="wishlist.html";
+}
+
+function goCart(){
+  location.href="cart.html";
+}
+
+function goProfile(){
+  location.href="profile.html";
+}
 
 function renderCategories(){
   document.getElementById("categoryList").innerHTML =
