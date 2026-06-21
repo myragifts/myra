@@ -655,29 +655,33 @@ function loadCategory(cat){
   }
 
   const filtered = categoryProducts.filter(p=>p.category === cat);
-  renderProducts(filtered);
+renderProducts(filtered);
 }
 
 function filterProducts(type,btn){
-  document.querySelectorAll(".filter-btn").forEach(b=>{
-    b.classList.remove("active");
-  });
 
-  btn.classList.add("active");
+document.querySelectorAll(".filter-btn").forEach(b=>{
+b.classList.remove("active");
+});
 
-  if(type === "All"){
-    renderProducts(categoryProducts);
-    return;
-  }
+btn.classList.add("active");
 
-  const filtered = categoryProducts.filter(p=>p.tag === type);
-  renderProducts(filtered);
+if(type === "All"){
+renderProducts(categoryProducts);
+return;
 }
 
+const filtered = categoryProducts.filter(p=>p.tag === type);
+renderProducts(filtered);
+}
+
+window.demoProducts = categoryProducts;
+
 renderProducts(categoryProducts);
+
 </script>
 
-<script src="productPopup.js?v=17"></script>
+<script src="productPopup.js?v=18"></script>
 
 </body>
 </html>
