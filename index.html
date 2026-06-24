@@ -1283,6 +1283,15 @@ return;
 
 saveUser(name,phone);
 
+if(referralCode){
+
+localStorage.setItem(
+"myra_referral_code",
+referralCode
+);
+
+}
+
 showToast(
 "✨ Welcome Back To MYRA"
 );
