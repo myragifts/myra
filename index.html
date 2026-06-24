@@ -1175,7 +1175,32 @@ document.body.classList.remove("loading");
 }
 
 let forgotMode="";
+const savedReferral =
+localStorage.getItem(
+CONFIG.STORAGE_KEYS.REFERRAL_VISIT
+);
 
+window.addEventListener(
+"load",
+()=>{
+
+const referralInput =
+document.getElementById(
+"signupReferral"
+);
+
+if(
+savedReferral &&
+referralInput
+){
+
+referralInput.value =
+savedReferral;
+
+}
+
+}
+);
 function showToast(message){
 
 const toast=document.getElementById("toast");
