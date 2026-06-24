@@ -1,168 +1,379 @@
-/* ==============================
-   MYRA CONFIG FILE
-   ============================== */
+/* ==========================================
+MYRA CONFIG
+Where Every Gift Tells A Story
+========================================== */
 
 const CONFIG = {
-  /* App Brand */
-  APP_NAME: "MYRA",
-  APP_TAGLINE: "Make Home Everywhere",
 
-  /* Offer Text */
-  SHIPPING_TEXT: "FREE SHIPPING on every candle",
+/* ==========================================
+BRAND
+========================================== */
 
-  /* Page Links */
-  LOGIN_PAGE: "index.html",
-  HOME_PAGE: "home.html",
-  PRODUCTS_PAGE: "products.html",
-  CART_PAGE: "cart.html",
-  ORDERS_PAGE: "orders.html",
-  PROFILE_PAGE: "profile.html",
+APP_NAME: "MYRA",
 
-  /* Theme Colors */
-  COLORS: {
-    PRIMARY: "#2E2E2E",
-    GOLD: "#C9A227",
-    CREAM: "#FFF8F0",
-    WARM_WHITE: "#FFFCF8",
-    SAGE: "#7A8B6F",
-    WHITE: "#FFFFFF",
-    BLACK: "#1F1F1F",
-    GRAY: "#6B7280",
-    BORDER: "#E8E0D4",
-    SUCCESS: "#16A34A",
-    DANGER: "#DC2626",
-    WARNING: "#F59E0B"
-  },
+APP_TAGLINE: "Where Every Gift Tells A Story",
 
-  /* Fonts */
-  FONTS: {
-    LOGO: "'Playfair Display', serif",
-    HEADING: "'Playfair Display', serif",
-    BODY: "'Poppins', sans-serif"
-  },
+APP_DESCRIPTION:
+"Discover thoughtfully curated gifts, handcrafted treasures, luxury candles, elegant jewellery, timeless paintings, and trending gift collections.",
 
-  /* Supabase */
-  SUPABASE_URL: "https://ijclbrwofsgrdnlyzkro.supabase.co",
-  SUPABASE_ANON_KEY: "sb_publishable_FzFZFR7qCsSv89mxruHFDQ_Gdfs1Yqx",
+DOMAIN: "https://myra.gifts",
 
-  /* Cloudinary */
-  CLOUDINARY_CLOUD_NAME: "PASTE_CLOUDINARY_CLOUD_NAME_HERE",
-  CLOUDINARY_UPLOAD_PRESET: "PASTE_UPLOAD_PRESET_HERE",
+VERSION: "1.0.0",
 
-  /* Razorpay */
-  RAZORPAY_KEY_ID: "PASTE_RAZORPAY_KEY_ID_HERE",
+/* ==========================================
+PAGE LINKS
+========================================== */
 
-  /* WhatsApp Seller Number */
-  SELLER_WHATSAPP: "919836697502",
+LOGIN_PAGE: "index.html",
 
-  /* Product Rules */
-  PRODUCT_ID_PREFIX: "MY",
-  PRODUCT_ID_START: 1,
-  PRODUCT_ID_END: 99999,
-  PRODUCT_NAME_WORD_LIMIT: 4,
-  PRODUCT_IMAGE_LIMIT: 4,
+HOME_PAGE: "home.html",
 
-  /* Shipping */
-  FREE_SHIPPING: true,
-  SHIPPING_CHARGE: 0,
+COLLECTION_PAGE: "collection.html",
 
-  /* Coupon Codes */
-  COUPONS: {
-    WELCOME: "WELCOME",
-    SPECIAL: "SPECIAL"
-  },
+FAVOURITES_PAGE: "favourites.html",
 
-  /* Coupon Discount Options */
-  DISCOUNT_OPTIONS: [5, 10, 15, 20],
+CART_PAGE: "cart.html",
 
-  /* Order Status */
-  ORDER_STATUS: [
-    "Order Processing",
-    "Confirmed",
-    "Packed",
-    "Shipped",
-    "Out For Delivery",
-    "Delivered",
-    "Cancelled"
-  ],
+PROFILE_PAGE: "profile.html",
 
-  /* Customer Labels */
-  CUSTOMER_LABELS: [
-    "New Customer",
-    "Regular Customer",
-    "VIP Customer",
-    "Cart No Order",
-    "Coupon Sent",
-    "Stock Request",
-    "High Buyer"
-  ],
+ADMIN_PAGE: "admin.html",
 
-  /* Admin Analytics Tabs */
-  ANALYTICS_TABS: [
-    "Last 3 Days",
-    "Last 7 Days",
-    "Last Month"
-  ],
+/* ==========================================
+THEME
+========================================== */
 
-  /* Local Storage Keys */
-  STORAGE_KEYS: {
-    USER_ID: "myra_user_id",
-    USER_NAME: "myra_user_name",
-    USER_PHONE: "myra_user_phone",
-    CART_COUNT: "myra_cart_count",
-    DEVICE_ID: "myra_device_id"
-  },
+COLORS: {
 
-  /* Candle Variant Options */
-  SIZES: [
-    "Small Jar",
-    "Medium Jar",
-    "Large Jar",
-    "Gift Box",
-    "Single Wick",
-    "Double Wick",
-    "Combo Pack"
-  ],
+PRIMARY: "#2C1A0B",
 
-  /* Product Categories - 10 slots, rename later */
-  CATEGORIES: [
-    "All",
-    "Category 1",
-    "Category 2",
-    "Category 3",
-    "Category 4",
-    "Category 5",
-    "Category 6",
-    "Category 7",
-    "Category 8",
-    "Category 9",
-    "Category 10"
-  ],
+GOLD: "#C6A55C",
 
-  /* Offer Types */
-  OFFER_TYPES: [
-    "New Arrival",
-    "Best Seller",
-    "Hand Poured",
-    "Limited Edition",
-    "Gift Special"
-  ],
+GOLD_LIGHT: "#E6D2A0",
 
-  /* Messages */
-  MESSAGES: {
-    LOGIN_REQUIRED: "Please sign in first",
-    NAME_REQUIRED: "Please enter your name",
-    PHONE_REQUIRED: "Please enter your phone number",
-    INVALID_PHONE: "Please enter a valid phone number",
-    LOGIN_SUCCESS: "Welcome to MYRA",
-    LOGOUT_SUCCESS: "Logged out successfully",
-    SIZE_REQUIRED: "Please select an option",
-    CART_ADDED: "Candle added to cart",
-    ADDRESS_REQUIRED: "Please fill all address details",
-    PROFILE_UPDATED: "Profile updated successfully",
-    ORDER_SUCCESS: "Order placed successfully"
-  }
+GOLD_DARK: "#A8841D",
+
+BACKGROUND: "#F8F5F0",
+
+CARD: "#FFFFFF",
+
+WARM: "#FFFCF8",
+
+SAGE: "#7A8B6F",
+
+TEXT: "#2C1A0B",
+
+MUTED: "#777777",
+
+BORDER: "#E8E0D3",
+
+SUCCESS: "#16A34A",
+
+DANGER: "#DC2626",
+
+WARNING: "#F59E0B"
+
+},
+
+/* ==========================================
+FONTS
+========================================== */
+
+FONTS: {
+
+LOGO: "'Cormorant Garamond', serif",
+
+HEADING: "'Cormorant Garamond', serif",
+
+BODY: "'Cormorant Garamond', serif"
+
+},
+
+/* ==========================================
+CATEGORIES
+========================================== */
+
+CATEGORIES: [
+
+"All",
+
+"Aroma Candles",
+
+"Handmade Jewellery",
+
+"Real Paintings",
+
+"Trending Gifts"
+
+],
+
+/* ==========================================
+PRODUCT TYPES
+========================================== */
+
+PRODUCT_TYPES: [
+
+"Aroma Candle",
+
+"Handmade Jewellery",
+
+"Painting",
+
+"Gift Item"
+
+],
+
+/* ==========================================
+COLLECTION LABELS
+========================================== */
+
+COLLECTION_TAGS: [
+
+"New Arrival",
+
+"Best Seller",
+
+"Trending",
+
+"Limited Edition",
+
+"Premium Collection",
+
+"Gift Special"
+
+],
+
+/* ==========================================
+SHIPPING
+========================================== */
+
+FREE_SHIPPING: true,
+
+SHIPPING_CHARGE: 0,
+
+SHIPPING_TEXT:
+"Free Shipping Across India",
+
+/* ==========================================
+PAYMENT
+========================================== */
+
+RAZORPAY_KEY_ID:
+"PASTE_RAZORPAY_KEY_ID",
+
+UPI_ID:
+"PASTE_UPI_ID",
+
+UPI_NAME:
+"MYRA",
+
+/* ==========================================
+CLOUDINARY
+========================================== */
+
+CLOUDINARY_CLOUD_NAME:
+"PASTE_CLOUDINARY_NAME",
+
+CLOUDINARY_UPLOAD_PRESET:
+"PASTE_UPLOAD_PRESET",
+
+/* ==========================================
+SUPABASE
+========================================== */
+
+SUPABASE_URL:
+"https://ijclbrwofsgrdnlyzkro.supabase.co",
+
+SUPABASE_ANON_KEY:
+"sb_publishable_FzFZFR7qCsSv89mxruHFDQ_Gdfs1Yqx",
+
+/* ==========================================
+CONTACT
+========================================== */
+
+SELLER_WHATSAPP:
+"919836697502",
+
+SUPPORT_EMAIL:
+"[support@myra.gifts](mailto:support@myra.gifts)",
+
+/* ==========================================
+STORAGE
+========================================== */
+
+STORAGE_KEYS: {
+
+USER_ID:
+"myra_user_id",
+
+USER_NAME:
+"myra_user_name",
+
+USER_PHONE:
+"myra_user_phone",
+
+DEVICE_ID:
+"myra_device_id",
+
+CART:
+"myra_cart",
+
+FAVOURITES:
+"myra_favourites",
+
+ORDERS:
+"myra_orders",
+
+CART_COUNT:
+"myra_cart_count"
+
+},
+
+/* ==========================================
+PWA
+========================================== */
+
+PWA: {
+
+MOBILE_ONLY: true,
+
+INSTALL_INTERVAL: 120000,
+
+INSTALL_PAGES: [
+
+"home.html",
+
+"collection.html"
+
+]
+
+},
+
+/* ==========================================
+ORDER STATUS
+========================================== */
+
+ORDER_STATUS: [
+
+"Order Processing",
+
+"Confirmed",
+
+"Packed",
+
+"Shipped",
+
+"Out For Delivery",
+
+"Delivered",
+
+"Cancelled"
+
+],
+
+/* ==========================================
+COUPONS
+========================================== */
+
+COUPONS: {
+
+WELCOME: "WELCOME",
+
+SPECIAL: "SPECIAL"
+
+},
+
+DISCOUNT_OPTIONS: [
+
+5,
+
+10,
+
+15,
+
+20
+
+],
+
+/* ==========================================
+ADMIN
+========================================== */
+
+ANALYTICS_TABS: [
+
+"Last 3 Days",
+
+"Last 7 Days",
+
+"Last Month"
+
+],
+
+CUSTOMER_LABELS: [
+
+"New Customer",
+
+"Regular Customer",
+
+"VIP Customer",
+
+"Cart No Order",
+
+"Coupon Sent",
+
+"Stock Request",
+
+"High Buyer"
+
+],
+
+/* ==========================================
+TOAST MESSAGES
+========================================== */
+
+MESSAGES: {
+
+LOGIN_REQUIRED:
+"Please sign in first",
+
+NAME_REQUIRED:
+"Please enter your name",
+
+PHONE_REQUIRED:
+"Please enter your phone number",
+
+INVALID_PHONE:
+"Please enter a valid phone number",
+
+LOGIN_SUCCESS:
+"Welcome to MYRA",
+
+SIGNUP_SUCCESS:
+"Account created successfully",
+
+LOGOUT_SUCCESS:
+"Logged out successfully",
+
+CART_ADDED:
+"Gift added to cart",
+
+FAVOURITE_ADDED:
+"Added to favourites",
+
+PROFILE_UPDATED:
+"Profile updated successfully",
+
+ADDRESS_REQUIRED:
+"Please complete address details",
+
+ORDER_SUCCESS:
+"Order placed successfully"
+
+}
+
 };
 
-/* Make config global */
+/* ==========================================
+GLOBAL ACCESS
+========================================== */
+
 window.CONFIG = CONFIG;
