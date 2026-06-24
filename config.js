@@ -118,14 +118,21 @@ const CONFIG = {
     "YOUR_RAZORPAY_KEY",
 
   /* ==========================================
-     BUSINESS
-  ========================================== */
+   BUSINESS
+========================================== */
 
-  SELLER_WHATSAPP:
-    "919836697502",
+SELLER_WHATSAPP:
+"919836697502",
 
-  SUPPORT_EMAIL:
-    "support@myragifts.in",
+SUPPORT_EMAIL:
+"support@myragifts.in",
+
+ADMIN: {
+
+  EMAIL:
+  "admin@myragifts.in"
+
+},
 
   /* ==========================================
      SHIPPING
